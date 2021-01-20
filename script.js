@@ -1,12 +1,16 @@
-const icons = document.querySelectorAll('.section-1-icons i' )
 
+const icons = document.querySelectorAll('.section-1-icons i')
+let i = 1
 
-// after 4 seconds the icon will be removed 
 setInterval(() => {
+	i++
+	const icon = document.querySelector('.section-1-icons .change')
+	icon.classList.remove('change')
 
-    const icon = document.querySelectorAll('.section-1-icons change')
-
-    icon.classList.remove('change')
-    // icon.nextElementSibling.classList.add('change')
-
-}, 1000)
+	if (i > icons.length) {
+		icons[0].classList.add('change')
+		i = 1
+	} else {
+		icon.nextElementSibling.classList.add('change')
+	}
+}, 4000)
